@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task Management System</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Welcome to Your Task Management App</h1>
+    <h1>welcome</h1>
+    <ul>
+      <% for(let i = 0; i < tasks.length; i++) { %>
+        <li>
+          <%= tasks[i] %>
+          <form action="/deleteTask" method="post" style="display:inline;">
+            <input type="hidden" name="taskIndex" value="<%= i %>">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% } %>
+    </ul>
+    <form action="/addTask" method="post">
+      <label for="newTask">New Task:</label>
+      <input type="text" id="newTask" name="newTask" required>
+      <button type="submit">Add Task</button>
+    </form>
+  </body>
+</html>
